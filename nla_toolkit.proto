@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package linear_algebra;
+
+message Matrix {
+  repeated double values = 1;
+  int32 rows = 2;
+  int32 cols = 3;
+}
+
+message MatrixOperationRequest {
+  enum Operation {
+    MULTIPLICATION = 0;
+    ADDITION = 1;
+    INVERSION = 2;
+  }
+
+  Matrix matrix_a = 1;
+  Matrix matrix_b = 2;
+  Operation operation = 3;
+}
+
+message MatrixOperationResponse {
+  Matrix result = 1;
+}
+
+service LinearAlgebraService {
+  rpc PerformMatrixOperation(MatrixOperationRequest) returns (MatrixOperationResponse);
+}
