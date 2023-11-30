@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package nla_toolkit;
+
+message Matrix {
+  repeated double values = 1;
+  int32 rows = 2;
+  int32 cols = 3;
+}
+
+message MatrixAdditionRequest {
+  Matrix matrix_a = 1;
+  Matrix matrix_b = 2;
+}
+
+message MatrixAdditionResponse {
+  Matrix result = 1;
+}
+
+message MatrixInverseRequest {
+  Matrix matrix = 1;
+}
+
+message MatrixInverseResponse {
+  Matrix result = 1;
+}
+ 
+service LinearAlgebraService {
+  rpc PerformMatrixAddition(MatrixAdditionRequest) returns (MatrixAdditionResponse);
+
+  rpc PerformMatrixInversion (MatrixInverseRequest) returns (MatrixInverseResponse);
+}
