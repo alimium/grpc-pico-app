@@ -4,6 +4,7 @@ from grpc_types import nla_toolkit_pb2
 import time
 import grpc
 import numpy as np
+from utils import matrix_to_numpy, numpy_to_matrix
 
 
 def get_matrix(i: int) -> nla_toolkit_pb2.Matrix:

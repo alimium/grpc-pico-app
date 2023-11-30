@@ -5,6 +5,7 @@ import numpy as np
 import grpc
 from grpc_types import nla_toolkit_pb2
 from grpc_types import nla_toolkit_pb2_grpc
+from utils import matrix_to_numpy, numpy_to_matrix
 
 
 def matrix_to_numpy(matrix: nla_toolkit_pb2.Matrix) -> np.ndarray:
