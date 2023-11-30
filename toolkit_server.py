@@ -1,10 +1,10 @@
+"""server side stuff"""
 from concurrent import futures
-import time
 import numpy as np
 
 import grpc
-import nla_toolkit_pb2
-import nla_toolkit_pb2_grpc
+from grpc_types import nla_toolkit_pb2
+from grpc_types import nla_toolkit_pb2_grpc
 
 
 def matrix_to_numpy(matrix: nla_toolkit_pb2.Matrix) -> np.ndarray:

@@ -1,21 +1,9 @@
-import nla_toolkit_pb2_grpc
-import nla_toolkit_pb2
+"""client side stuff"""
+from grpc_types import nla_toolkit_pb2_grpc
+from grpc_types import nla_toolkit_pb2
 import time
 import grpc
 import numpy as np
-
-
-def matrix_to_numpy(matrix: nla_toolkit_pb2.Matrix) -> np.ndarray:
-    row = matrix.rows
-    col = matrix.cols
-    vals = list(matrix.values)
-    return np.array(vals).reshape((row, col))
-
-
-def numpy_to_matrix(array: np.ndarray) -> nla_toolkit_pb2.Matrix:
-    row, col = array.shape
-    matrix = nla_toolkit_pb2.Matrix(values=array.flatten(), rows=row, cols=col)
-    return matrix
 
 
 def get_matrix(i: int) -> nla_toolkit_pb2.Matrix:
